@@ -1,0 +1,89 @@
+ktor:
+  deployment:
+    port: 8080
+    host: 127.0.0.1
+  application:
+    modules:
+      - com.yandex.retailmedia.sample.app.ApplicationKt.module
+
+# RetailMedia ad units of the sample store, as issued by the partner interface.
+#
+# A placement is addressed by platform, screen and ad format: the partner interface issues its own
+# page and ad unit per app, so the Android and the iOS build of this store are different `page-id`s,
+# and productPromo and display ads on one screen are different ad units.
+#
+# Each slot carries three identifiers, and they are not interchangeable:
+#   pageId    — addresses the s2s request, `POST /retail/{page-id}`
+#   impId     — the *number* of the block inside that page, sent as `imp-id`; RM parses it as an
+#               integer and rejects anything else with `400 Invalid imp-id`
+#   adUnitId  — the block id as shown in the partner interface, `R-M-<pageId>-<impId>`; RM never
+#               sees it, the client passes it to `RetailMediaLoader.loadAd`
+#
+# The defaults below are this sample's own ad units, so the store shows real ads out of the box.
+# Point the sample at your own inventory by overriding the environment variables
+# (`RM_<PLATFORM>_<SCREEN>_<FORMAT>_PAGE_ID` / `_IMP_ID` / `_AD_UNIT_ID`); a slot left blank serves
+# no ads.
+retailmedia:
+  baseUrl: "$RM_BASE_URL:https://yandex.ru/retail"
+  retailFeedId: "$RM_RETAIL_FEED_ID:1919109251421308378"
+  placements:
+    android:
+      home:
+        productPromo:
+          pageId: "$RM_ANDROID_HOME_PRODUCT_PROMO_PAGE_ID:19820220"
+          impId: "$RM_ANDROID_HOME_PRODUCT_PROMO_IMP_ID:1"
+          adUnitId: "$RM_ANDROID_HOME_PRODUCT_PROMO_AD_UNIT_ID:R-M-19820220-1"
+        display:
+          pageId: "$RM_ANDROID_HOME_DISPLAY_PAGE_ID:19820267"
+          impId: "$RM_ANDROID_HOME_DISPLAY_IMP_ID:1"
+          adUnitId: "$RM_ANDROID_HOME_DISPLAY_AD_UNIT_ID:R-M-19820267-1"
+      category:
+        productPromo:
+          pageId: "$RM_ANDROID_CATEGORY_PRODUCT_PROMO_PAGE_ID:19820227"
+          impId: "$RM_ANDROID_CATEGORY_PRODUCT_PROMO_IMP_ID:1"
+          adUnitId: "$RM_ANDROID_CATEGORY_PRODUCT_PROMO_AD_UNIT_ID:R-M-19820227-1"
+      search:
+        productPromo:
+          pageId: "$RM_ANDROID_SEARCH_PRODUCT_PROMO_PAGE_ID:19820257"
+          impId: "$RM_ANDROID_SEARCH_PRODUCT_PROMO_IMP_ID:1"
+          adUnitId: "$RM_ANDROID_SEARCH_PRODUCT_PROMO_AD_UNIT_ID:R-M-19820257-1"
+      categories:
+        display:
+          pageId: "$RM_ANDROID_CATEGORIES_DISPLAY_PAGE_ID:19820261"
+          impId: "$RM_ANDROID_CATEGORIES_DISPLAY_IMP_ID:1"
+          adUnitId: "$RM_ANDROID_CATEGORIES_DISPLAY_AD_UNIT_ID:R-M-19820261-1"
+      cart:
+        display:
+          pageId: "$RM_ANDROID_CART_DISPLAY_PAGE_ID:19820265"
+          impId: "$RM_ANDROID_CART_DISPLAY_IMP_ID:1"
+          adUnitId: "$RM_ANDROID_CART_DISPLAY_AD_UNIT_ID:R-M-19820265-1"
+    ios:
+      home:
+        productPromo:
+          pageId: "$RM_IOS_HOME_PRODUCT_PROMO_PAGE_ID:19820270"
+          impId: "$RM_IOS_HOME_PRODUCT_PROMO_IMP_ID:1"
+          adUnitId: "$RM_IOS_HOME_PRODUCT_PROMO_AD_UNIT_ID:R-M-19820270-1"
+        display:
+          pageId: "$RM_IOS_HOME_DISPLAY_PAGE_ID:19820277"
+          impId: "$RM_IOS_HOME_DISPLAY_IMP_ID:1"
+          adUnitId: "$RM_IOS_HOME_DISPLAY_AD_UNIT_ID:R-M-19820277-1"
+      category:
+        productPromo:
+          pageId: "$RM_IOS_CATEGORY_PRODUCT_PROMO_PAGE_ID:19820271"
+          impId: "$RM_IOS_CATEGORY_PRODUCT_PROMO_IMP_ID:1"
+          adUnitId: "$RM_IOS_CATEGORY_PRODUCT_PROMO_AD_UNIT_ID:R-M-19820271-1"
+      search:
+        productPromo:
+          pageId: "$RM_IOS_SEARCH_PRODUCT_PROMO_PAGE_ID:19820272"
+          impId: "$RM_IOS_SEARCH_PRODUCT_PROMO_IMP_ID:1"
+          adUnitId: "$RM_IOS_SEARCH_PRODUCT_PROMO_AD_UNIT_ID:R-M-19820272-1"
+      categories:
+        display:
+          pageId: "$RM_IOS_CATEGORIES_DISPLAY_PAGE_ID:19820273"
+          impId: "$RM_IOS_CATEGORIES_DISPLAY_IMP_ID:1"
+          adUnitId: "$RM_IOS_CATEGORIES_DISPLAY_AD_UNIT_ID:R-M-19820273-1"
+      cart:
+        display:
+          pageId: "$RM_IOS_CART_DISPLAY_PAGE_ID:19820275"
+          impId: "$RM_IOS_CART_DISPLAY_IMP_ID:1"
+          adUnitId: "$RM_IOS_CART_DISPLAY_AD_UNIT_ID:R-M-19820275-1"

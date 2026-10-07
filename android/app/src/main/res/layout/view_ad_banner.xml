@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Display ad slot for Categories and Cart. NativeAdView draws nothing by itself: the ad appears
+     only through the asset views passed to RetailMediaAdViewBinder. The set is dictated by the
+     creative, not the layout — an asset the ad unit returned with no view for it fails the whole
+     binding. The media aspect ratio is set by applyCreativeRatio at binding time. -->
+<com.yandex.mobile.ads.nativeads.NativeAdView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.yandex.mobile.ads.nativeads.MediaView
+                android:id="@+id/ad_media"
+                android:layout_width="96dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H,16:9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+                android:id="@+id/ad_feedback"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/cd_ad_feedback"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@id/ad_feedback"
+                app:layout_constraintStart_toEndOf="@id/ad_media"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginStart="0dp">
+
+            <TextView
+                    android:id="@+id/ad_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+            <TextView
+                    android:id="@+id/ad_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+
+            <TextView
+                    android:id="@+id/ad_sponsored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                    android:textColor="@color/ad_secondary_text" />
+
+            <TextView
+                    android:id="@+id/ad_warning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                    android:textColor="@color/ad_secondary_text" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.yandex.mobile.ads.nativeads.NativeAdView>

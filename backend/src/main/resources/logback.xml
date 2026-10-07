@@ -1,0 +1,16 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <logger name="org.eclipse.jetty" level="INFO"/>
+    <logger name="io.netty" level="INFO"/>
+    <!-- Traces every ad request end to end: what went to RM, what came back, and why a screen ends
+         up without ads. This is the part of the integration you cannot see from the outside — set
+         it to INFO to quieten it down. -->
+    <logger name="com.yandex.retailmedia.sample.retailmedia" level="DEBUG"/>
+</configuration>

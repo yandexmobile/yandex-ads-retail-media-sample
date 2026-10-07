@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">RetailMedia Store</string>
+
+    <!-- Bottom navigation tab titles -->
+    <string name="title_home">Home</string>
+    <string name="title_categories">Categories</string>
+    <string name="title_cart">Cart</string>
+
+    <!-- Toolbar / actions -->
+    <string name="action_search">Search</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_add_to_cart">Add to cart</string>
+    <string name="action_checkout">Checkout</string>
+    <string name="cd_product_image">Product image</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_remove">Remove</string>
+    <string name="cd_increase">Increase quantity</string>
+    <string name="cd_decrease">Decrease quantity</string>
+
+    <!-- List states -->
+    <string name="state_empty">Nothing here yet</string>
+    <string name="state_error">Couldn\'t load</string>
+
+    <!-- Search -->
+    <string name="search_hint">Search products</string>
+    <string name="state_search_start">Search the catalog</string>
+    <string name="state_search_empty">Nothing found</string>
+
+    <!-- Cart -->
+    <string name="cart_empty">Your cart is empty</string>
+    <string name="cart_total">Total</string>
+
+    <!-- Ad chip -->
+    <string name="ad_label">Реклама</string>
+    <string name="cd_ad_feedback">About this ad</string>
+
+    <!-- Snackbars -->
+    <string name="msg_order_placed">Order placed</string>
+    <string name="msg_action_failed">Something went wrong</string>
+</resources>

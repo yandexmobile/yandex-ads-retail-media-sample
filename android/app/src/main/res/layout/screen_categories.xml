@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:title="@string/title_categories"
+            app:menu="@menu/menu_search" />
+
+    <include
+            android:id="@+id/ad_banner"
+            layout="@layout/view_ad_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="8dp" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+        <LinearLayout
+                android:id="@+id/emptyView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_state_empty"
+                    app:tint="#BDBDBD" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/state_empty"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/errorView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_state_error"
+                    app:tint="#BDBDBD" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/state_error"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/retry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/action_retry" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
