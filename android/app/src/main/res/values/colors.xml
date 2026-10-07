@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="ad_capsule">#D1FFFFFF</color>
+    <color name="ad_capsule_text">#FF212121</color>
+    <color name="ad_secondary_text">#FF616161</color>
+    <color name="slider_dot">#FFCFCFCF</color>
+    <color name="slider_dot_active">#FF616161</color>
+</resources>

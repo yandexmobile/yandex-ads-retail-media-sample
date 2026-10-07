@@ -1,0 +1,21 @@
+.DS_Store
+
+## Build generated
+build/
+DerivedData/
+
+## Xcode per-user data (shared schemes under xcshareddata are kept)
+xcuserdata/
+*.xcuserstate
+*.mode1v3
+*.mode2v3
+*.pbxuser
+*.perspectivev3
+*.moved-aside
+
+## Other
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+.swiftpm/
